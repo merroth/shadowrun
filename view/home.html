@@ -1,0 +1,13 @@
+
+<h1>Shadowrun</h1>
+
+<label>
+	Hvad leder du efter?
+	<input type="text" ng-model="filterMenu" placeholder="Søg" />
+</label>
+
+<ul>
+	<li ng-repeat="mp in menu" ng-if="(arrToStr(mp.keywords)).lastIndexOf(filterMenu) > -1 || filterMenu == '' || filterMenu == null" >
+		<a href="#/{{mp.url}}">{{mp.label}}</a>
+	</li>
+</ul>

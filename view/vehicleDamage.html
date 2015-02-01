@@ -1,0 +1,24 @@
+
+<table border="1" class="superTable">
+	<tr>
+		<td colspan="90"><h1>Input:</h1></td>
+	</tr>
+	<tr>
+		<td> <label>Kilometer i timen: <input type="number" id="kmh" value="0" ng-model="v1" ng-change="run()" /></label> </td>
+		<td> <label>Body på bil: <input type="number" id="bcar" value="0" ng-model="v2" ng-change="run()" /></label> </td>
+	</tr>
+	<tr>
+		<td colspan="90"><h1>Resultat:</h1></td>
+	</tr>
+	<tr>
+		<td colspan="90"> <label>Skade<input type="text" id="dmg" value="0" ng-model="v3" ng-change="run()" /></label> </td>
+	</tr>
+	<tr>
+		<td colspan="90"><h1>Info:</h1></td>
+	</tr>
+	<tr>
+		<td><label id="mod">Modifier</label></td>
+		<td> <label>Meter per sekund<input type="text" id="kms" value="0" ng-model="v4" ng-change="run()" /></label> </td>
+		<td> <label>Meter per tur<input type="text" id="kmt" value="0" ng-model="v5" ng-change="run()" /></label> </td>
+	</tr>
+</table>
