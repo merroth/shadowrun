@@ -14,6 +14,11 @@ angular
 				label: "Køretøj skade",
 				url: "vehicle-damage",
 				keywords : ['car','bil','køretøj','vehicle','skade','damage']
+			},
+			infoEdge : {
+				label: "Edge",
+				url: "info-edge",
+				keywords : ['edge','held','luck','point','spent','regain']
 			}
 		};
 	$scope.arrToStr = function(arr) //Omdanner et array til en string så man let kan søge på indhold
@@ -27,7 +32,6 @@ angular
 	}
 	$scope.sortMenu = function(query)
 	{
-		console.clear();
 		if(typeof(query) !== "string")
 		{
 			return $scope.menu;
@@ -44,10 +48,10 @@ angular
 			var obj = {menu : $scope.menu[m], index : 0};
 			for(var i in query) // each search word
 			{
-				var q = query[i]
+				var q = query[i].toLowerCase()
 				for(var z in keys)
 				{
-					var k = keys[z];
+					var k = keys[z].toLowerCase();
 					if(q==k)
 					{ obj.index++; }
 					if(k.lastIndexOf(q) >= 0)

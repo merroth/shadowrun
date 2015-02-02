@@ -15,4 +15,9 @@ var masterApp=angular
         templateUrl: 'view/vehicleDamage.html',
         controller: 'vehicleDamageCtrl'
       })
+      .state('info-edge', {
+        url: '/info-edge',
+        templateUrl: 'view/info-edge.html',
+        controller: 'info-edgeCtrl'
+      })
   }])
