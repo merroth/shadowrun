@@ -1,41 +1,29 @@
 angular
   .module('app') //Extends App
   .controller('homeCtrl', ['$scope', function($scope) {
-	  
-	$scope.homeIs ="";
-	 
+	
 	$scope.menu = { //JSON objekt med menuen. "label" er den udtrykte tekst for menupunktet, "url" korresponderer med med "app.js" routen til undersiden uden ledende "/" og "keywords" er de nøgleord som søgefunktionen associerer med dette punkt.
-			home : {
-				label: "Forside",
-				url: "",
-				keywords : ['home','search','index','forside']
-			},
-			vechicleDamage : {
-				label: "Køretøj skade",
-				url: "vehicle-damage",
-				keywords : ['car','bil','køretøj','vehicle','skade','damage']
-			},
-			infoEdge : {
-				label: "Edge",
-				url: "info-edge",
-				keywords : ['edge','held','luck','point','spent','regain']
-			}
-		};
-	$scope.arrToStr = function(arr) //Omdanner et array til en string så man let kan søge på indhold
-	{
-		var str = "";
-		for(var i in arr)
-		{
-			str+=arr[i]+" ";
+
+		vechicleDamage : {
+			label: "Køretøj skade",
+			url: "vehicle-damage",
+			category : ["tool"],
+			keywords : ['car','bil','køretøj','vehicle','skade','damage']
+		},
+		infoEdge : {
+			label: "Edge",
+			url: "info-edge",
+			category : ["info"],
+			keywords : ['edge','held','luck','point','spent','regain','burn']
 		}
-		return str;
-	}
+	};
+	//Standard values
+	$scope.categories = {'info' : true, 'tool' : true}; // Søg på kategorien
+		
 	$scope.sortMenu = function(query)
 	{
 		if(typeof(query) !== "string")
-		{
-			return $scope.menu;
-		}
+		{ query = ""; }
 		
 		var warr = [],	//work array
 		rarr = [];	//return array
@@ -58,7 +46,15 @@ angular
 					{ obj.index++; }
 				}
 			}
-			warr.push(obj);
+			var categoryEnabled = false;
+			for(var i in obj.menu.category)
+			{
+				var c = obj.menu.category[i];
+				if($scope.categories[c] != false)
+				{ categoryEnabled = true; }
+			}
+			if(categoryEnabled == true)
+			{ warr.push(obj); }
 		}
 
 		function returner(warr,rarr)
@@ -73,11 +69,15 @@ angular
 					latest = i;
 				}
 			}
-			rarr.push(best.menu);
+			best['menu']['index'] = best['index'];
+			best = best['menu'];
+			
+			rarr.push(best);
 			warr.splice([latest],1);
 			
 			if(warr.length > 0)
 			{ rarr = returner(warr,rarr); }
+			
 			return rarr;
 		}
 		rarr = returner(warr,rarr);

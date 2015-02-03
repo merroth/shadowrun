@@ -1,14 +1,17 @@
 
 <h1>Shadowrun</h1>
 
-<label>
-	Hvad leder du efter?
-	<input type="text" ng-model="filterMenu" ng-change="sortMenu(filterMenu);" placeholder="Søg" />
+<label> Hvad leder du efter?
+	<input type="text" ng-model="filterMenu" ng-change="sortMenu(filterMenu);" value="" placeholder="Søg" />
 </label>
-
+<label> Info sider
+	<input type="checkbox" ng-model="categories['info']" ng-checked="categories['info']" ng-change="sortMenu(filterMenu);" />
+</label>
+<label> Værktøjer
+	<input type="checkbox" ng-model="categories['tool']" ng-checked="categories['tool']" ng-change="sortMenu(filterMenu);" />
+</label>
 <ul>
-	<!-- <li ng-repeat="mp in menu" ng-if="(arrToStr(mp.keywords)).lastIndexOf(filterMenu) > -1 || filterMenu == '' || filterMenu == null" > -->
 	<li ng-repeat="mp in sortMenu(filterMenu)">
-		<a href="#/{{mp.url}}">{{mp.label}}</a>
+		<a href="#/{{mp.url}}" title="{{mp.index}}">{{mp.label}}</a>
 	</li>
 </ul>
