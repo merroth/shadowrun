@@ -25,4 +25,9 @@ var masterApp=angular
         templateUrl: 'view/weaponRange.html',
         controller: 'weaponRangeCtrl'
       })
+      .state('healing', {
+        url: '/healing',
+        templateUrl: 'view/healing.html',
+        controller: 'healingCtrl'
+      })
   }])

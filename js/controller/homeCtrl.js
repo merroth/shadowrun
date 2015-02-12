@@ -21,6 +21,12 @@ angular
 			url: "weaponRange",
 			category : ["info","tool"],
 			keywords : ["weapon","range","våben","rækkevidde"]
+		},
+		healing : {
+			label: "Healing",
+			url: "healing",
+			category : ["info"],
+			keywords : ["houserule","healing","helbredelse","rekreation"]
 		}
 	};
 	//Standard values
