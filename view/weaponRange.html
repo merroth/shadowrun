@@ -1,0 +1,46 @@
+<h1>Våben rækkevidde</h1>
+
+<label>
+	Karakter styrke: 
+	<input type="number" ng-model="str" ng-change="reloadWeapons()" />
+</label>
+<label>
+	Filtrer: 
+	<input type="text" ng-model="searchText"/>
+</label>
+
+<table class="table table-bordered" style="text-align:center">
+	<tr>
+		<td colspan="5"><b>Våben rækkevidde tabel (Rækkevidde i meter)</b></td>
+	</tr>
+	<tr>
+		<td><b>Dice pool modifiers</b></td>
+		<td><b>0</b></td>
+		<td><b>-1</b></td>
+		<td><b>-3</b></td>
+		<td><b>-6</b></td>
+	</tr>
+	<tr>
+		<td><b>Name</b></td>
+		<td><b>Short</b></td>
+		<td><b>Medium</b></td>
+		<td><b>Long</b></td>
+		<td><b>Extreme</b></td>
+	</tr>
+	
+	<tbody ng-repeat="c in categories">
+		<tr>
+			<td colspan="5"><i><a data-toggle="collapse" data-target=".collapser-{{c.toLowerCase().replace(' ','-')}}" href="">{{c}}</a></i></td>
+		</tr>
+		<tr ng-repeat="w in weapons | filter:searchText" ng-if="w.category == c" class="collapser-{{c.toLowerCase().replace(' ','-')}} panel-collapse collapse in">
+			<td>{{w.name}}</td>
+			<td>{{w.short}}</td>
+			<td>{{w.medium}}</td>
+			<td>{{w.long}}</td>
+			<td>{{w.extreme}}</td>
+		</tr>
+	</tbody>
+	<tr>
+		<td colspan="5">*Granat minimums rækkevidde (side 155)</td>
+	</tr>
+</table>

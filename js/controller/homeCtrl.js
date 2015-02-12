@@ -15,6 +15,12 @@ angular
 			url: "info-edge",
 			category : ["info"],
 			keywords : ['edge','held','luck','point','spent','regain','burn']
+		},
+		weaponRange : {
+			label: "Våben rækkevidde",
+			url: "weaponRange",
+			category : ["info","tool"],
+			keywords : ["weapon","range","våben","rækkevidde"]
 		}
 	};
 	//Standard values

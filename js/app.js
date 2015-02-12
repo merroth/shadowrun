@@ -20,4 +20,9 @@ var masterApp=angular
         templateUrl: 'view/info-edge.html',
         controller: 'info-edgeCtrl'
       })
+      .state('weaponRange', {
+        url: '/weaponRange',
+        templateUrl: 'view/weaponRange.html',
+        controller: 'weaponRangeCtrl'
+      })
   }])
