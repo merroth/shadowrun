@@ -30,4 +30,11 @@ var masterApp=angular
         templateUrl: 'view/healing.html',
         controller: 'healingCtrl'
       })
+      .state('encounter', {
+        url: '/encounter',
+        templateUrl: 'view/encounter.html',
+        controller: 'encounterCtrl'
+      })
   }])
+  
+masterApp.query = "";

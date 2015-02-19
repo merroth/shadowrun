@@ -2,8 +2,11 @@ angular
   .module('app') //Extends App
   .controller('homeCtrl', ['$scope', function($scope) {
 	
+	$scope.filterMenu = masterApp.query;
+	$scope.start = true;
+	
 	$scope.menu = { //JSON objekt med menuen. "label" er den udtrykte tekst for menupunktet, "url" korresponderer med med "app.js" routen til undersiden uden ledende "/" og "keywords" er de nøgleord som søgefunktionen associerer med dette punkt.
-
+		
 		vechicleDamage : {
 			label: "Køretøj skade",
 			url: "vehicle-damage",
@@ -27,13 +30,24 @@ angular
 			url: "healing",
 			category : ["info"],
 			keywords : ["houserule","healing","helbredelse","rekreation"]
-		}
+		},
+		encounter : {
+			label: "Encounter",
+			url: "encounter",
+			category : ["info","tool"],
+			keywords : ["encounter","random","travel","rejse","område","area"]
+		},
 	};
 	//Standard values
 	$scope.categories = {'info' : true, 'tool' : true}; // Søg på kategorien
 		
 	$scope.sortMenu = function(query)
 	{
+		if($scope.start)
+		{ query = masterApp.query; $scope.start = false;}
+		else
+		{ masterApp.query = query; }
+		
 		if(typeof(query) !== "string")
 		{ query = ""; }
 		
