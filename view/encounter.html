@@ -9,7 +9,7 @@
 <div id="panel-1" class="panel-collapse collapse">
 	<p>Start med 5 terninger + din edge.</p>
 	<p>Tilføj Zone værdien fra tabellen herunder:</p>
-	<table class="table">
+	<table class="table table-bordered">
 		<thead>
 			<tr>
 				<th>AAA</th>
@@ -36,6 +36,40 @@
 		</tbody>
 	</table>
 	<p>Tilføj point fra kvaliteter og andre faktorer.</p>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>Character is lucky</th>
+				<th>Appearing Rich</th>
+				<th>Appearing Poor</th>
+				<th>Character is physically imposing in some way</th>
+				<th>Character is carrying a weapon or obviously a mage</th>
+				<th>Character seams harmless</th>
+				<th>Ork or Troll Metatype</th>
+				<th>Changeling</th>
+				<th>Character has (known) street reputation</th>
+				<th>Characters walk in a group</th>
+				<th>Character is obviously intoxicated</th>
+				<th>At Night</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>+Edge Score</td>
+				<td>-1 til -4 *</td>
+				<td>+1 til +4 *</td>
+				<td>+1 til +3</td>
+				<td>+2*</td>
+				<td>-2</td>
+				<td>+1*</td>
+				<td>-2</td>
+				<td>+Street Cred</td>
+				<td>+1 per karakter (Max 4)</td>
+				<td>-1</td>
+				<td>-1</td>
+			</tr>
+		</tbody>
+	</table>
 	<br/>
 	<p>Slå terningerne. Antal successer afgør størrelsen af encounter.</p>
 	<br/>
@@ -52,7 +86,7 @@
 	<label>Edge:<input type="number" value="0" ng-model="edge"/></label>
 	<br/>
 	<p>Zone :
-		<table class="table">
+		<table class="table table-bordered">
 			<tr><td ng-repeat="z in zones">
 				<label>
 					<b>{{z.name}}</b>
