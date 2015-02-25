@@ -83,6 +83,7 @@
 </h2>
 
 <div id="panel-2" class="panel-collapse collapse">
+	
 	<label>Edge:<input type="number" value="0" ng-model="edge"/></label>
 	<br/>
 	<p>Zone :
@@ -98,7 +99,24 @@
 	<label>Andre faktorer:<input type="number" value="0" ng-model="others"/></label>
 	<br/>
 	<br/>
-	<p>Antal terninger: <u><b>{{5 + edge + zone.value + others}}</b></u>
-	<br/>
+
+	<h4>Antal terninger: <u><b>{{5 + edge + zone.value + others}}</b></u></h4>
+	<p>
 	<i><b>5 + edge({{edge}}) + zone({{zone.name}} / {{zone.value}}) + others({{others}})</b></i></p>
+	<button class="btn btn-primary" ng-click="roll()">Kast</button>
+	<p>
+		<span ng-hide="true">{{result = 5 + edge + zone.value + others}}</span>
+		<table class="table table-bordered" ng-if="output.full == true">
+			<tr><th colspan="20">Slag ({{output.die}} terninger)</th></tr>
+			<tr><td ng-repeat="r in output.resultone">{{$index+1}} sider: {{r}}</td></tr>
+			<tr><td colspan="20">Successer: {{output.success}}</td></tr>
+			<tr><th colspan="20">Slag 2</th></tr>
+			<tr><td ng-repeat="r in output.resulttwo">{{$index+1}} sider: {{r}}</td></tr>
+			<tr><td colspan="20">Antal øjne = {{output.eyes}}</td></tr>
+			<tr>
+				<td colspan="20" class="danger" ng-if="output.glitch">Glitched!</td>
+				<td colspan="20" class="success" ng-if="!output.glitch">Success</td>
+			</tr>
+		</table>
+	</p>
 </div>
