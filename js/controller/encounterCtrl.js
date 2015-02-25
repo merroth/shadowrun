@@ -44,10 +44,9 @@ angular
 			result1[x]++;
 			if(x >4)
 			{success++;}
-			
 		}
 		
-		for(var i = 0;i<6;i++)
+		for(var i = 0;i<5;i++)
 		{
 			var x = Math.round(Math.random() * 5) + 1;
 			result2[x]++;
