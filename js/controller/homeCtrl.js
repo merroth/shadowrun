@@ -37,6 +37,12 @@ angular
 			category : ["info","tool"],
 			keywords : ["encounter","random","travel","rejse","område","area"]
 		},
+		charOppessedTests : {
+			label: "Charisma-linked opposed tests",
+			url: "charisma-linkedOpposedTests",
+			category : ["info"],
+			keywords : ["charisma","linked","opposed","tests"]
+		},
 	};
 	//Standard values
 	$scope.categories = {'info' : true, 'tool' : true}; // Søg på kategorien

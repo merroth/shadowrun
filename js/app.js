@@ -35,6 +35,11 @@ var masterApp=angular
         templateUrl: 'view/encounter.html',
         controller: 'encounterCtrl'
       })
+      .state('charisma-linkedOpposedTests', {
+        url: '/charisma-linkedOpposedTests',
+        templateUrl: 'view/charisma-linkedOpposedTests.html',
+        controller: 'charisma-linkedOpposedTestsCtrl'
+      })
   }])
   
 masterApp.query = "";

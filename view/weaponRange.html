@@ -30,7 +30,7 @@
 	
 	<tbody ng-repeat="c in categories">
 		<tr>
-			<td colspan="5"><i><a data-toggle="collapse" data-target=".collapser-{{c.toLowerCase().replace(' ','-')}}" href="">{{c}}</a></i></td>
+			<td colspan="5"><i><b><a data-toggle="collapse" data-target=".collapser-{{c.toLowerCase().replace(' ','-')}}" href="">{{c}}</a></b></i></td>
 		</tr>
 		<tr ng-repeat="w in weapons | filter:searchText" ng-if="w.category == c" class="collapser-{{c.toLowerCase().replace(' ','-')}} panel-collapse collapse in">
 			<td>{{w.name}}</td>
